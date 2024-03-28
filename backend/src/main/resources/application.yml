@@ -30,8 +30,8 @@ config:
 jwt:
   access.secret: awuidbuaiwdbuiawdbuiabduiawhduih12ui3h1ui2h3ui12h31i2h3
   refresh.secret: 12yu3v1yu2yu1v41yuv41yuv5yu1b52ui35bi23b52i5bi2b5i2b52
-  # Durata in minuti
-  # Un mese
+  # Duration in minutes
+  # One Months
   access.duration: 43200
-  # Due mesi
+  # Two Months
   refresh.duration: 86400
