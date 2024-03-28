@@ -1,7 +1,7 @@
-package com.dezuani.template.mapper;
+package com.dezzu.template.mapper;
 
-import com.dezuani.template.dto.UserDto;
-import com.dezuani.template.model.AppUser;
+import com.dezzu.template.dto.UserDto;
+import com.dezzu.template.model.AppUser;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,4 +1,4 @@
-package com.dezuani.template.constant;
+package com.dezzu.template.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

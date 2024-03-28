@@ -1,4 +1,4 @@
-package com.dezuani.template.util;
+package com.dezzu.template.util;
 
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
-package com.dezuani.template.repo;
+package com.dezzu.template.repo;
 
-import com.dezuani.template.model.AppUser;
+import com.dezzu.template.model.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;

@@ -1,6 +1,6 @@
-package com.dezuani.template.filter;
+package com.dezzu.template.filter;
 
-import com.dezuani.template.util.JwtUtil;
+import com.dezzu.template.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

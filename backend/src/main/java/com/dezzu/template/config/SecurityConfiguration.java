@@ -1,6 +1,6 @@
-package com.dezuani.template.config;
+package com.dezzu.template.config;
 
-import com.dezuani.template.filter.JwtFilter;
+import com.dezzu.template.filter.JwtFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

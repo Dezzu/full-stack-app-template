@@ -1,6 +1,6 @@
-package com.dezuani.template.exception;
+package com.dezzu.template.exception;
 
-import com.dezuani.template.constant.ErrorsInterface;
+import com.dezzu.template.constant.ErrorsInterface;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

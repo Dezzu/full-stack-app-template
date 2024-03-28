@@ -1,4 +1,4 @@
-package com.dezuani.template.config;
+package com.dezzu.template.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;

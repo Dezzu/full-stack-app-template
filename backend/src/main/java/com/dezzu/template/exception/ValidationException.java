@@ -1,4 +1,4 @@
-package com.dezuani.template.exception;
+package com.dezzu.template.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

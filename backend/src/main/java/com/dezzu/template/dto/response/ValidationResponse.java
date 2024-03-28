@@ -1,7 +1,7 @@
-package com.dezuani.template.dto.response;
+package com.dezzu.template.dto.response;
 
-import com.dezuani.template.constant.CommonValidationErrors;
-import com.dezuani.template.exception.ValidationError;
+import com.dezzu.template.constant.CommonValidationErrors;
+import com.dezzu.template.exception.ValidationError;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

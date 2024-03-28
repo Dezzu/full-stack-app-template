@@ -1,6 +1,6 @@
-package com.dezuani.template.dto;
+package com.dezzu.template.dto;
 
-import com.dezuani.template.model.Role;
+import com.dezzu.template.model.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

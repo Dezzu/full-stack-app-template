@@ -1,11 +1,11 @@
-package com.dezuani.template.controller;
+package com.dezzu.template.controller;
 
-import com.dezuani.template.dto.RoleDto;
-import com.dezuani.template.dto.UserDto;
-import com.dezuani.template.dto.request.PaginationRequest;
-import com.dezuani.template.dto.request.RegistrationRequest;
-import com.dezuani.template.dto.response.BaseResponse;
-import com.dezuani.template.service.UserService;
+import com.dezzu.template.dto.RoleDto;
+import com.dezzu.template.dto.UserDto;
+import com.dezzu.template.dto.request.PaginationRequest;
+import com.dezzu.template.dto.request.RegistrationRequest;
+import com.dezzu.template.dto.response.BaseResponse;
+import com.dezzu.template.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

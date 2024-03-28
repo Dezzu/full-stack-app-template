@@ -1,4 +1,4 @@
-package com.dezuani.template.dto;
+package com.dezzu.template.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

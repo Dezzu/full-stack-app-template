@@ -1,6 +1,6 @@
-package com.dezuani.template.repo;
+package com.dezzu.template.repo;
 
-import com.dezuani.template.model.Role;
+import com.dezzu.template.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

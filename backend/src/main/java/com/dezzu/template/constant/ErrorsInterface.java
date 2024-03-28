@@ -1,4 +1,4 @@
-package com.dezuani.template.constant;
+package com.dezzu.template.constant;
 
 public interface ErrorsInterface {
 

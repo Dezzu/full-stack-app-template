@@ -1,14 +1,14 @@
-package com.dezuani.template.controller;
+package com.dezzu.template.controller;
 
-import com.dezuani.template.dto.UserDto;
-import com.dezuani.template.dto.request.JwtRequest;
-import com.dezuani.template.dto.request.RefreshTokenRequest;
-import com.dezuani.template.dto.request.RegistrationRequest;
-import com.dezuani.template.dto.request.ValidationTokenRequest;
-import com.dezuani.template.dto.response.BaseResponse;
-import com.dezuani.template.dto.response.JwtResponse;
-import com.dezuani.template.dto.response.ValidationTokenResponse;
-import com.dezuani.template.service.AuthenticationService;
+import com.dezzu.template.dto.UserDto;
+import com.dezzu.template.dto.request.JwtRequest;
+import com.dezzu.template.dto.request.RefreshTokenRequest;
+import com.dezzu.template.dto.request.RegistrationRequest;
+import com.dezzu.template.dto.request.ValidationTokenRequest;
+import com.dezzu.template.dto.response.BaseResponse;
+import com.dezzu.template.dto.response.JwtResponse;
+import com.dezzu.template.dto.response.ValidationTokenResponse;
+import com.dezzu.template.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

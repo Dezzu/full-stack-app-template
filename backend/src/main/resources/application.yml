@@ -3,7 +3,7 @@ server:
   error.include-stacktrace: never
 
 logging.level:
-  com.dezuani.template: DEBUG
+  com.dezzu.template: DEBUG
   org.springframework.web.client.RestTemplate: DEBUG
   org.hibernate.SQL: DEBUG
   org.hibernate.type.descriptor.sql.BasicBinder: TRACE

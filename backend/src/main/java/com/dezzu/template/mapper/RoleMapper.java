@@ -1,7 +1,7 @@
-package com.dezuani.template.mapper;
+package com.dezzu.template.mapper;
 
-import com.dezuani.template.dto.RoleDto;
-import com.dezuani.template.model.Role;
+import com.dezzu.template.dto.RoleDto;
+import com.dezzu.template.model.Role;
 import org.springframework.stereotype.Component;
 
 @Component

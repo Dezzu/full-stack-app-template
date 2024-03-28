@@ -1,4 +1,4 @@
-package com.dezuani.template.model;
+package com.dezzu.template.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

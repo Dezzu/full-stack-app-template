@@ -1,6 +1,6 @@
-package com.dezuani.template.exception;
+package com.dezzu.template.exception;
 
-import com.dezuani.template.dto.response.BaseResponse;
+import com.dezzu.template.dto.response.BaseResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

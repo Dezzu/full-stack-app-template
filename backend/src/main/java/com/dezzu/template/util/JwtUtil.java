@@ -1,4 +1,4 @@
-package com.dezuani.template.util;
+package com.dezzu.template.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

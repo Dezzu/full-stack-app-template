@@ -1,7 +1,7 @@
-package com.dezuani.template.util;
+package com.dezzu.template.util;
 
-import com.dezuani.template.constant.CommonErrors;
-import com.dezuani.template.exception.ApplicationException;
+import com.dezzu.template.constant.CommonErrors;
+import com.dezzu.template.exception.ApplicationException;
 import org.springframework.stereotype.Component;
 
 import java.text.ParseException;

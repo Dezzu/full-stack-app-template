@@ -1,7 +1,7 @@
-package com.dezuani.template.exception;
+package com.dezzu.template.exception;
 
-import com.dezuani.template.constant.CommonValidationErrors;
-import com.dezuani.template.dto.response.ValidationResponse;
+import com.dezzu.template.constant.CommonValidationErrors;
+import com.dezzu.template.dto.response.ValidationResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

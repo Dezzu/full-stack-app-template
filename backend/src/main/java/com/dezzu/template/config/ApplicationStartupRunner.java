@@ -1,7 +1,7 @@
-package com.dezuani.template.config;
+package com.dezzu.template.config;
 
-import com.dezuani.template.model.Role;
-import com.dezuani.template.repo.RoleRepository;
+import com.dezzu.template.model.Role;
+import com.dezzu.template.repo.RoleRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
