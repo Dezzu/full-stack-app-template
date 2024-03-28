@@ -11,7 +11,7 @@
     <groupId>com.dezzu</groupId>
     <artifactId>app-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>vidia-gestionale</name>
+    <name>Template Project</name>
     <description>Progetto di Template</description>
 
     <packaging>pom</packaging>
