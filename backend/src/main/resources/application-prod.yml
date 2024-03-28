@@ -1,0 +1,4 @@
+spring:
+  jpa:
+    # update oppure create-drop se voglio spianare tutto e ricostruire
+    hibernate.ddl-auto: update

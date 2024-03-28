@@ -1,0 +1,37 @@
+server:
+  port: ${SERVER_PORT}
+  error.include-stacktrace: never
+
+logging.level:
+  com.dezuani.template: DEBUG
+  org.springframework.web.client.RestTemplate: DEBUG
+  org.hibernate.SQL: DEBUG
+  org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+spring:
+  datasource:
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+  jpa:
+    hibernate.ddl-auto: update
+    open-in-view: false
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+config:
+  roles_to_create: USER, ADMIN
+  default_user: USER
+
+jwt:
+  access.secret: awuidbuaiwdbuiawdbuiabduiawhduih12ui3h1ui2h3ui12h31i2h3
+  refresh.secret: 12yu3v1yu2yu1v41yuv41yuv5yu1b52ui35bi23b52i5bi2b5i2b52
+  # Durata in minuti
+  # Un mese
+  access.duration: 43200
+  # Due mesi
+  refresh.duration: 86400

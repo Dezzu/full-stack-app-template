@@ -1,0 +1,9 @@
+DB_USERNAME: postgres
+DB_PASSWORD: postgres
+DB_URL: jdbc:postgresql://localhost:5432/template
+SERVER_PORT: 8080
+
+spring:
+  jpa:
+    # update oppure create-drop se voglio spianare tutto e ricostruire
+    hibernate.ddl-auto: update
