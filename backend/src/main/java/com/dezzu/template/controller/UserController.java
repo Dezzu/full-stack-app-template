@@ -48,14 +48,14 @@ public class UserController {
     }
 
     @GetMapping("/{username}/ruoli")
-    public ResponseEntity<BaseResponse<RoleDto>> getUserRole(@PathVariable("username") String username) {
+    public ResponseEntity<BaseResponse<RoleDto>> getUserRole(@PathVariable String username) {
         RoleDto roles = userService.getUserRole(username);
         BaseResponse<RoleDto> response = new BaseResponse<>(roles);
         return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/{username}/ruoli/{roleName}")
-    public ResponseEntity<BaseResponse<RoleDto>> addRoleToUser(@PathVariable("username") String username, @PathVariable("roleName") String roleName) {
+    public ResponseEntity<BaseResponse<RoleDto>> addRoleToUser(@PathVariable String username, @PathVariable String roleName) {
         RoleDto role = userService.addRoleToUser(username, roleName);
         BaseResponse<RoleDto> response = new BaseResponse<>(role);
         return ResponseEntity.ok().body(response);
