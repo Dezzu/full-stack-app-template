@@ -1,0 +1,148 @@
+@if (label) {
+    <label [for]="labelFor ?? uuid">{{ label }}</label>
+}
+
+<p-select
+    [inputId]="labelFor ?? uuid"
+    *ngIf="!multiple"
+    [class]="inputClass"
+    [loading]="loading"
+    loadingIcon="fa-solid fa-circle-notch loading-animation"
+    [placeholder]="placeholder"
+    [ngClass]="{ 'ng-dirty': control?.dirty, 'ng-invalid': control?.invalid }"
+    [id]="inputId ?? 'select_label'"
+    [options]="options"
+    [(ngModel)]="value"
+    [optionValue]="optionValue"
+    [optionLabel]="optionLabel"
+    [filter]="enableFilter"
+    [filterBy]="filterBy"
+    (ngModelChange)="updateValue($event)"
+    [showClear]="showClear"
+>
+    <!--#region selectedItem    -->
+    <ng-template *ngIf="customSelections != null" let-selectedOption #selectedItem>
+        <ng-container
+            [ngTemplateOutlet]="customSelections"
+            [ngTemplateOutletContext]="{ $implicit: selectedOption }"
+        ></ng-container>
+    </ng-template>
+    <ng-template
+        *ngIf="iconMode && (iconMode == SelectIconMode.SELECTION || iconMode == SelectIconMode.BOTH)"
+        #selectedItem
+        let-selectedOption
+    >
+        <ng-container
+            [ngTemplateOutlet]="singleIconTemplate"
+            [ngTemplateOutletContext]="{ $implicit: selectedOption }"
+        ></ng-container>
+    </ng-template>
+    <ng-template #selectedItem let-selectedOption>
+        <div>{{ selectedOption.label }}</div>
+    </ng-template>
+    <!--#endregion    -->
+
+    <!--#region item list    -->
+    <ng-template *ngIf="customItems != null" let-item #item>
+        <ng-container [ngTemplateOutlet]="customItems" [ngTemplateOutletContext]="{ $implicit: item }"></ng-container>
+    </ng-template>
+    <ng-template
+        *ngIf="iconMode && (iconMode == SelectIconMode.LIST || iconMode == SelectIconMode.BOTH)"
+        let-item
+        #item
+    >
+        <ng-container
+            [ngTemplateOutlet]="singleIconTemplate"
+            [ngTemplateOutletContext]="{ $implicit: item }"
+        ></ng-container>
+    </ng-template>
+    <!--#endregion    -->
+
+    <ng-template #dropdownicon>
+        <ng-container *ngIf="customIcon != null" [ngTemplateOutlet]="customIcon"></ng-container>
+        <span class="fa-solid fa-caret-down"></span>
+    </ng-template>
+    <ng-template #clearicon>
+        <ng-container *ngIf="clearIcon != null" [ngTemplateOutlet]="clearIcon"></ng-container>
+        <span class="fa-solid fa-xmark"></span>
+    </ng-template>
+    <ng-template *ngIf="customHeader != null" #header>
+        <ng-container [ngTemplateOutlet]="customHeader"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="customFooter != null" #footer>
+        <ng-container [ngTemplateOutlet]="customFooter"></ng-container>
+    </ng-template>
+</p-select>
+<p-multiSelect
+    *ngIf="multiple"
+    [class]="inputClass"
+    [placeholder]="placeholder"
+    display="chip"
+    [loading]="loading"
+    loadingIcon="fa-solid fa-circle-notch loading-animation"
+    [ngClass]="{ 'ng-dirty': control?.dirty, 'ng-invalid': control?.invalid }"
+    [id]="inputId ?? 'select_label'"
+    [options]="options"
+    [(ngModel)]="value"
+    [optionValue]="optionValue"
+    [optionLabel]="optionLabel"
+    [filter]="enableFilter"
+    [filterBy]="filterBy"
+    (ngModelChange)="updateValue($event)"
+    [showClear]="showClear"
+>
+    <!--#region item list    -->
+    <ng-template *ngIf="customItems != null" let-item #item>
+        <ng-container [ngTemplateOutlet]="customItems" [ngTemplateOutletContext]="{ $implicit: item }"></ng-container>
+    </ng-template>
+    <ng-template
+        *ngIf="iconMode && (iconMode == SelectIconMode.LIST || iconMode == SelectIconMode.BOTH)"
+        let-item
+        #item
+    >
+        <ng-container
+            [ngTemplateOutlet]="singleIconTemplate"
+            [ngTemplateOutletContext]="{ $implicit: item }"
+        ></ng-container>
+    </ng-template>
+    <!--#endregion    -->
+
+    <ng-template #dropdownicon>
+        <ng-container *ngIf="customIcon != null" [ngTemplateOutlet]="customIcon"></ng-container>
+        <span class="fa-solid fa-caret-down"></span>
+    </ng-template>
+    <ng-template #clearicon>
+        <ng-container *ngIf="clearIcon != null" [ngTemplateOutlet]="clearIcon"></ng-container>
+        <span class="fa-solid fa-xmark"></span>
+    </ng-template>
+    <ng-template #filtericon>
+        <ng-container *ngIf="filterIcon != null" [ngTemplateOutlet]="filterIcon"></ng-container>
+        <span class="fa-solid fa-magnifying-glass"></span>
+    </ng-template>
+    <ng-template *ngIf="customHeader != null" #header>
+        <ng-container [ngTemplateOutlet]="customHeader"></ng-container>
+    </ng-template>
+    <ng-template *ngIf="customFooter != null" #footer>
+        <ng-container [ngTemplateOutlet]="customFooter"></ng-container>
+    </ng-template>
+</p-multiSelect>
+
+<!--#region single iconTemplate-->
+<ng-template #singleIconTemplate let-item>
+    <div class="flex justify-content-start align-items-center gap-2">
+        <span [class]="item.data.icon"></span>
+        <div>{{ item.label }}</div>
+    </div>
+</ng-template>
+<!--#endregion-->
+
+<!--#region multiple iconTemplate-->
+<ng-template #multipleIconTemplate let-item>
+    <div class="flex justify-content-start align-items-center gap-2">
+        <span [class]="item.data.icon"></span>
+        <div>{{ item.label }}</div>
+    </div>
+</ng-template>
+<!--#endregion-->
+
+<dui-validator-errors [control]="control"></dui-validator-errors>

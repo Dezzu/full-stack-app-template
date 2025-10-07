@@ -1,0 +1,9 @@
+@if (control && control.dirty && control.touched && control.errors) {
+    <span>
+        <ul class="error-list">
+            @for (key of Object.keys(control.errors); track key) {
+                <li class="text-sm">{{ getErrorText(errors[key], control.errors[key]) }}</li>
+            }
+        </ul>
+    </span>
+}

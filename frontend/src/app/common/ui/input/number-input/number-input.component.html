@@ -1,0 +1,39 @@
+@if (label) {
+    <label [for]="labelFor ?? uuid">{{ label }}</label>
+}
+
+<dui-input-clear [showClear]="showClear" [value]="value" (clear)="handleClear()">
+    <p-inputNumber
+        [inputId]="labelFor ?? uuid"
+        [useGrouping]="useGrouping"
+        [prefix]="prefix"
+        [suffix]="suffix"
+        [showButtons]="showButtons"
+        [min]="min"
+        [max]="max"
+        [minFractionDigits]="minFractionDigits"
+        [maxFractionDigits]="maxFractionDigits"
+        [step]="step"
+        [currency]="currency"
+        locale="it-IT"
+        [mode]="mode"
+        [ngStyle]="{ width: '100%' }"
+        [class]="inputClass"
+        [placeholder]="placeholder"
+        [ngClass]="{ 'ng-dirty': control?.dirty, 'ng-invalid': control?.invalid }"
+        [id]="inputId ?? 'over_label'"
+        [autocomplete]="autocomplete"
+        [(ngModel)]="value"
+        (ngModelChange)="updateValue($event)"
+        [disabled]="disabled"
+    >
+        <ng-template #incrementbuttonicon>
+            <span class="fa-solid fa-angle-up"></span>
+        </ng-template>
+        <ng-template #decrementbuttonicon>
+            <span class="fa-solid fa-angle-down"></span>
+        </ng-template>
+    </p-inputNumber>
+</dui-input-clear>
+
+<dui-validator-errors [control]="control" />

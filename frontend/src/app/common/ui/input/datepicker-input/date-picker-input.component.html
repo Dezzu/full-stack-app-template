@@ -1,0 +1,20 @@
+@if (label) {
+    <label [for]="labelFor ?? uuid">{{ label }}</label>
+}
+
+<dui-input-clear [showClear]="showClear" [value]="value" (clear)="handleClear()">
+    <p-date-picker
+        [class]="inputClass"
+        [placeholder]="placeholder"
+        [ngClass]="{ 'ng-dirty': control?.dirty, 'ng-invalid': control?.invalid }"
+        style="width: 100%"
+        [(ngModel)]="value"
+        (ngModelChange)="updateValue($event)"
+        [disabled]="disabled"
+        [id]="labelFor ?? uuid"
+        [timeOnly]="timeOnly"
+    >
+    </p-date-picker>
+</dui-input-clear>
+
+<dui-validator-errors [control]="control" />

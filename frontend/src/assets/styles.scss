@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@use './tailwind.css';
+@use './layout/layout.scss';
+@use 'primeicons/primeicons.css';
+
+@import "@fortawesome/fontawesome-free/css/all.css";
+@import "primeflex/primeflex.min.css";
+
+form {
+    input, p-autocomplete, textarea, p-date-picker, p-datepicker, p-select, p-input-number, p-inputnumber, p-selectButton, p-select-button {
+        width: 100%;
+    }
+}
+
+dui-number-input, dui-password-input {
+  .clear-button {
+    right: 25px !important;
+  }
+}
+
+dui-autocomplete-input {
+  .clear-button {
+    right: 40px !important;
+  }
+}

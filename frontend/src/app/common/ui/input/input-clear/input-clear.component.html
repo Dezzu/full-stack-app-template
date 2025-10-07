@@ -1,0 +1,14 @@
+<ng-template #contentTemplate>
+  <ng-content></ng-content>
+</ng-template>
+
+@if (showClear) {
+    <p-iconfield>
+        <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+        @if (value) {
+            <p-inputicon (click)="emitClear()" class="cursor-pointer fa-solid fa-xmark clear-button" />
+        }
+    </p-iconfield>
+} @else {
+  <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
+}

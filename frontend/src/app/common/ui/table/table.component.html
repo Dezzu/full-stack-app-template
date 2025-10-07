@@ -1,0 +1,156 @@
+<p-table
+    #dt
+    [columns]="cols"
+    [value]="items"
+    [scrollable]="true"
+    [rows]="rows"
+    [paginator]="paginator"
+    [rowsPerPageOptions]="rowsPerPageOptions"
+    [totalRecords]="totalRecords"
+    paginatorPosition="bottom"
+    [lazy]="lazy"
+    [loading]="loading"
+    [rowHover]="true"
+    (onLazyLoad)="loadItems($event)"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Da {first} a {last} di {totalRecords} righe"
+    [dataKey]="dataKey"
+>
+    @if (!simpleTable) {
+        <ng-template pTemplate="caption">
+            <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                <h5 class="m-0">{{ title }}</h5>
+                <div class="flex">
+                    <ng-container [ngTemplateOutlet]="getTemplateByName('customFilters')"></ng-container>
+
+                    <p-button
+                        icon="pi pi-refresh"
+                        label="Ricarica"
+                        type="button"
+                        class="mr-2"
+                        (click)="loadItems(lastEvent)"
+                    >
+                    </p-button>
+
+                    @if (showAddButton) {
+                        <p-button
+                            icon="pi pi-plus"
+                            label="Aggiungi"
+                            severity="success"
+                            class="mr-2"
+                            (click)="openNew.emit()"
+                        />
+                    }
+                    @if (showColumnSelector) {
+                        <p-multiSelect
+                            [options]="getRemovableColumns()"
+                            [(ngModel)]="selectedColumns"
+                            optionLabel="header"
+                            selectedItemsLabel="{0} colonne selezionate"
+                            [style]="{ 'min-width': '200px' }"
+                            placeholder="Seleziona colonne"
+                        ></p-multiSelect>
+                    }
+                    @if (showSearch) {
+                        <dui-text-input
+                            class="ml-2 mb-0"
+                            icon="pi pi-search"
+                            placeholder="Cerca..."
+                            (input)="dt.filterGlobal($event.target.value, 'contains')"
+                        />
+                    }
+                </div>
+            </div>
+        </ng-template>
+    }
+
+    <ng-template #header let-columns>
+        <tr>
+            @if (expandable) {
+                <th></th>
+            }
+            @for (col of getColumnToShow(); track col.field) {
+                @if (col.sortable == undefined || col.sortable) {
+                    <th [pSortableColumn]="col.field">
+                        {{ col.header }} <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                } @else {
+                    <th>
+                        {{ col.header }}
+                    </th>
+                }
+            }
+            @if (actions) {
+                <th></th>
+            }
+        </tr>
+    </ng-template>
+    <ng-template #body let-rowData let-columns="columns" let-expanded="expanded">
+        <tr>
+            @if (expandable) {
+                <td>
+                    <p-button
+                        type="button"
+                        variant="text"
+                        severity="secondary"
+                        [pRowToggler]="rowData"
+                        [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"
+                    ></p-button>
+                </td>
+            }
+            @for (col of getColumnToShow(); track col.field) {
+                <td>
+                    @if (getTemplateByName(col.field)) {
+                        <ng-container
+                            [ngTemplateOutlet]="getTemplateByName(col.field)"
+                            [ngTemplateOutletContext]="{ $implicit: getFieldValue(rowData, col.field), item: rowData }"
+                        ></ng-container>
+                    } @else if (getFieldValue(rowData, col.field) != undefined && col.pipe != undefined) {
+                        <ng-container>{{
+                            getFieldValue(rowData, col.field) | dynamicPipe: getPipeToken(col.pipe) : col.pipeArgs
+                        }}</ng-container>
+                    } @else if (getFieldValue(rowData, col.field) != undefined && col.suffix != undefined) {
+                        <ng-container>{{ getFieldValue(rowData, col.field) + ' ' + col.suffix }}</ng-container>
+                    } @else if (getFieldValue(rowData, col.field) != undefined) {
+                        <ng-container>{{ getFieldValue(rowData, col.field) }}</ng-container>
+                    } @else {
+                        <ng-container> - </ng-container>
+                    }
+                </td>
+            }
+            @if (actions) {
+                <td>
+                    <div class="flex justify-content-end flex-row gap-2">
+                        @for (action of actions; track action.icon) {
+                            @if (action.visible == undefined || action.visible(rowData, items)) {
+                                <p-button
+                                    (click)="action.command(rowData, items)"
+                                    [disabled]="action.disabled != undefined && action.disabled(rowData, items)"
+                                    [severity]="action.severity ?? 'success'"
+                                    [styleClass]="action.class"
+                                    [icon]="typeof action.icon == 'string' ? action.icon : action.icon(rowData, items)"
+                                />
+                            }
+                        }
+                    </div>
+                </td>
+            }
+        </tr>
+    </ng-template>
+
+    <ng-template #expandedrow let-row>
+        <tr>
+            <td [colSpan]="getColspan()">
+                <ng-container
+                    [ngTemplateOutlet]="getTemplateByName('expandedRow')"
+                    [ngTemplateOutletContext]="{ $implicit: row }"
+                ></ng-container>
+            </td></tr
+    ></ng-template>
+
+    <ng-template pTemplate="emptymessage">
+        <tr>
+            <td [colSpan]="getColspan()" class="text-center">Nessun dato presente</td>
+        </tr>
+    </ng-template>
+</p-table>

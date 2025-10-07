@@ -3,15 +3,15 @@ version: '3.9'
 services:
   template-app:
     container_name: template
-    image: template
+    image: template:1.0.1
     restart: always
     ports:
-      - "7000:9000"
+      - "8000:9000"
     environment:
       SPRING_PROFILES_ACTIVE: prod
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
-      DB_URL: jdbc:postgresql://postgres:5432/template
+      DB_URL: jdbc:postgresql://postgres:5432/gestionale
       SERVER_PORT: 9000
     networks:
       - postgres_network

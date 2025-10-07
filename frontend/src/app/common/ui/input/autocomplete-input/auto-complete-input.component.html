@@ -1,0 +1,28 @@
+@if (label) {
+    <label [for]="labelFor ?? uuid">{{ label }}</label>
+}
+
+<dui-input-clear [showClear]="showClear" [value]="value" (clear)="customClear()">
+    <p-autoComplete
+        [class]="inputClass"
+        style="width: 100%"
+        [placeholder]="placeholder"
+        [ngClass]="{
+            'ng-dirty': control?.dirty,
+            'ng-invalid': control?.invalid
+        }"
+        [(ngModel)]="value"
+        (ngModelChange)="updateValue($event)"
+        [disabled]="disabled"
+        [showEmptyMessage]="showEmptyMessage"
+        [emptyMessage]="emptyMessage"
+        [suggestions]="suggestions"
+        (onSelect)="onSelect.emit($event)"
+        (completeMethod)="completeMethod.emit($event)"
+        [optionLabel]="optionLabel"
+        [dropdown]="dropdown"
+    >
+    </p-autoComplete>
+</dui-input-clear>
+
+<dui-validator-errors [control]="control" />

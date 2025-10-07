@@ -120,7 +120,7 @@
 							<outputDirectory>${project.build.directory}/classes/static/</outputDirectory>
 							<resources>
 								<resource>
-									<directory>${project.parent.basedir}/frontend/dist/vidia-fe/browser</directory>
+									<directory>${project.parent.basedir}/frontend/dist/template/browser</directory>
 								</resource>
 							</resources>
 						</configuration>

@@ -1,0 +1,18 @@
+@if (label) {
+    <label [for]="labelFor ?? uuid">{{ label }}</label>
+}
+
+<p-selectButton
+    [class]="inputClass"
+    [ngClass]="{ 'ng-dirty': control?.dirty, 'ng-invalid': control?.invalid }"
+    style="width: 100%"
+    [(ngModel)]="value"
+    (ngModelChange)="updateValue($event)"
+    [disabled]="disabled"
+    [id]="labelFor ?? uuid"
+    [options]="options"
+    [optionLabel]="optionLabel"
+    [optionValue]="optionValue"
+></p-selectButton>
+
+<dui-validator-errors [control]="control" />

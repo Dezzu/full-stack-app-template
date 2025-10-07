@@ -1,0 +1,15 @@
+<div class="card mb-5">
+    <p-toast></p-toast>
+
+    <dui-table
+        [items]="commesse"
+        (onLazyLoad)="loadCommesse($event)"
+        [totalRecords]="appPage && appPage.data.totalElements"
+        [cols]="selectedColumns"
+        [actions]="commesseActions"
+        [showAddButton]="false"
+        [showSearch]="false"
+        [showColumnSelector]="false"
+        title="Commesse in corso"
+    ></dui-table>
+</div>

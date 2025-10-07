@@ -1,0 +1,30 @@
+@if (label) {
+    <label [for]="labelFor ?? uuid">{{ label }}</label>
+}
+<dui-input-clear [showClear]="showClear" [value]="value" (clear)="handleClear()">
+    @if (icon) {
+        <p-iconfield>
+            <p-inputicon [class]="icon" />
+            <ng-container [ngTemplateOutlet]="onlyInput"></ng-container>
+        </p-iconfield>
+    } @else {
+        <ng-container [ngTemplateOutlet]="onlyInput"></ng-container>
+    }
+</dui-input-clear>
+
+<dui-validator-errors [control]="control" />
+
+<ng-template #onlyInput>
+    <input
+        [class]="inputClass"
+        [ngClass]="{ 'ng-dirty': control?.dirty, 'ng-invalid': control?.invalid }"
+        style="width: 100%"
+        [placeholder]="placeholder ?? ''"
+        pInputText
+        [id]="labelFor ?? uuid"
+        [autocomplete]="autocomplete"
+        [(ngModel)]="value"
+        (ngModelChange)="updateValue($event)"
+        [disabled]="disabled"
+    />
+</ng-template>
