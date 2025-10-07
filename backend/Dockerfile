@@ -1,6 +1,5 @@
-FROM bellsoft/liberica-openjdk-debian:17
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY ./target/*.jar app.jar
 
-ARG JAR_FILE
-COPY ${JAR_FILE} template.jar
-
-ENTRYPOINT ["java","-jar","/template.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

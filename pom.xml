@@ -5,16 +5,22 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.5.5</version>
         <relativePath/>
     </parent>
 
-    <groupId>com.dezzu</groupId>
+    <groupId>it.fabiodezuani</groupId>
     <artifactId>app-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <name>Template Project</name>
     <description>Progetto di Template</description>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
 
     <packaging>pom</packaging>
 
