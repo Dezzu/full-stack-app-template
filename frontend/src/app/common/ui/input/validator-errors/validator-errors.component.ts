@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, ValidationErrors } from '@angular/forms';
-import { FormUtilityService } from '@/common/auth/services/form-utility.service';
+import { FormUtilityService } from '@/common/services/form-utility.service';
 
 @Component({
     selector: 'dui-validator-errors',

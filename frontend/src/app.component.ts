@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PrimengTranslateService } from '@/common/auth/services/primeng-translate.service';
-import { ConfigurationService } from '@/common/auth/services/configuration.service';
+import { PrimengTranslateService } from '@/common/services/primeng-translate.service';
+import { ConfigurationService } from '@/common/services/configuration.service';
 
 @Component({
     selector: 'app-root',

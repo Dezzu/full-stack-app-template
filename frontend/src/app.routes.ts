@@ -1,24 +1,34 @@
 import { Routes } from '@angular/router';
-import { AppLayout } from '@/layout/component/app.layout';
-import { needAuthGuard, noAuthGuard } from '@/guard/auth.guard';
+import { AppLayout } from '@/app-layout/component/app.layout';
+import { LandingLayout } from '@/landing-layout/landing.layout';
+import { canActivateGuard } from '@/guard/guard';
 
 export const appRoutes: Routes = [
     {
         path: '',
-        component: AppLayout,
+        component: LandingLayout,
         children: [
-            { path: '', loadChildren: () => import('@/gestionale/dashboard/dashboard.routes').then((m) => m.routes) },
             {
-                path: 'gestionale',
-                loadChildren: () => import('@/gestionale/gestionale.routes').then((m) => m.routes),
-                canActivate: [needAuthGuard]
+                path: '',
+                loadChildren: () => import('@/pages/landing/landing.routes').then((m) => m.routes)
             }
-        ]
+        ],
+        pathMatch: 'full'
     },
     {
-        path: 'auth',
-        loadChildren: () => import('@/common/auth/auth.routes').then((m) => m.routes),
-        canActivate: [noAuthGuard]
+        path: 'r',
+        component: AppLayout,
+        canActivate: [canActivateGuard],
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('@/pages/recipes/dashboard/dashboard.routes').then((m) => m.routes)
+            },
+            {
+                path: 'pages',
+                loadChildren: () => import('@/pages/recipes/pages.routes').then((m) => m.routes)
+            }
+        ]
     },
     { path: '**', redirectTo: '/notfound' }
 ];

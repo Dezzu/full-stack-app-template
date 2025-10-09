@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-    baseUrl: "http://localhost:8080/api"
+    production: false,
+    baseUrl: 'http://localhost:8080/api',
+    kcClientId: 'fabulous-receipt',
+    kcRealm: 'Fabulous-Receipts-Dev',
+    kcUrl: 'https://auth.dezzulab.com'
 };
 
 /*
