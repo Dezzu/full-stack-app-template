@@ -7,16 +7,17 @@ import { LandingTopbar } from './landing.topbar';
     selector: 'app-landing-layout',
     standalone: true,
     imports: [CommonModule, LandingTopbar, RouterModule],
-    template: `<div class="layout-wrapper">
-        <app-landing-topbar></app-landing-topbar>
-        <div class="layout-main-container">
-            <div class="layout-main">
-                <router-outlet></router-outlet>
-            </div>
-            <!--            <app-footer></app-footer>-->
-        </div>
-        <div class="layout-mask"></div>
-    </div> `
+    template: ` <app-landing-topbar></app-landing-topbar>
+        <router-outlet></router-outlet>`,
+    styles: [
+        `
+            :host {
+                display: block;
+                min-height: 100vh;
+                background-color: #f5f5f5;
+            }
+        `
+    ]
 })
 export class LandingLayout {
     @ViewChild(LandingTopbar) appTopBar!: LandingTopbar;

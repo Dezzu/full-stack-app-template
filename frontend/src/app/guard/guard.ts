@@ -10,7 +10,6 @@ const isAccessAllowed = async (
 ): Promise<boolean | UrlTree> => {
     const { authenticated } = authData;
     const authService = inject(AuthService);
-
     if (authenticated) {
         return true;
     }

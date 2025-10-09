@@ -9,10 +9,12 @@ export const provideKeycloakAngular: () => EnvironmentProviders = () =>
             realm: environment.kcRealm,
             clientId: environment.kcClientId
         },
-        initOptions: {}
+        initOptions: {
+            onLoad: 'check-sso'
+        }
     });
 
 export const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
-    urlPattern: /'(.*)?$/i,
+    urlPattern: /^(.*)?$/i,
     bearerPrefix: 'Bearer'
 });

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, PrimeTemplate } from 'primeng/api';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { StyleClassModule } from 'primeng/styleclass';
@@ -7,79 +7,62 @@ import { AuthService } from '@/common/services/auth.service';
 import { AppConfigurator } from '@/app-layout/component/app.configurator';
 import { LayoutService } from '@/app-layout/service/layout.service';
 import Keycloak from 'keycloak-js';
+import { Toolbar } from 'primeng/toolbar';
+import { Button } from 'primeng/button';
 
 @Component({
     selector: 'app-landing-topbar',
     standalone: true,
-    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator],
-    template: ` <div class="layout-topbar">
-        <div class="layout-topbar-logo-container">
-            <button class="layout-menu-button layout-topbar-action" (click)="layoutService.onMenuToggle()">
-                <i class="pi pi-bars"></i>
-            </button>
-            <a class="layout-topbar-logo" routerLink="">
-                <img
-                    src="./assets/images/{{ !layoutService.isDarkTheme() ? 'logo-dark' : 'logo-white' }}.svg"
-                    alt="logo"
-                />
-                <span>Template</span>
-            </a>
-        </div>
+    imports: [RouterModule, CommonModule, StyleClassModule, AppConfigurator, Toolbar, PrimeTemplate, Button],
+    template: ` <!-- navbar.component.html -->
+        <p-toolbar>
+            <ng-template pTemplate="start">
+                <img style="height: 2.5rem; margin-right: 0.5rem" src="./assets/images/logo.png" alt="logo" />
+                <span class="text-2xl font-bold">Ricette App</span>
+            </ng-template>
 
-        <div class="layout-topbar-actions">
-            <div class="layout-config-menu">
-                <button type="button" class="layout-topbar-action" (click)="toggleDarkMode()">
-                    <i
-                        [ngClass]="{
-                            'pi ': true,
-                            'pi-moon': layoutService.isDarkTheme(),
-                            'pi-sun': !layoutService.isDarkTheme()
-                        }"
-                    ></i>
-                </button>
-            </div>
-
-            <button
-                class="layout-topbar-menu-button layout-topbar-action"
-                pStyleClass="@next"
-                enterFromClass="hidden"
-                enterActiveClass="animate-scalein"
-                leaveToClass="hidden"
-                leaveActiveClass="animate-fadeout"
-                [hideOnOutsideClick]="true"
-            >
-                <i class="pi pi-ellipsis-v"></i>
-            </button>
-
-            <div class="layout-topbar-menu hidden lg:block">
-                <div class="layout-topbar-menu-content">
-                    @if (authService.isAuthenticated()) {
-                        <button type="button" class="layout-topbar-action" (click)="logout()">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            <span>Esci</span>
-                        </button>
-                    } @else {
-                        <button type="button" class="layout-topbar-action" (click)="login()">
-                            <i class="fa-solid fa-right-to-bracket"></i>
-                            <span>Login</span>
-                        </button>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>`
+            <ng-template pTemplate="end">
+                @if (!authService.isAuthenticated()) {
+                    <p-button
+                        label="Accedi"
+                        (click)="login()"
+                        icon="fa-solid fa-right-to-bracket"
+                        styleClass="p-button-rounded"
+                    ></p-button>
+                    <p-button
+                        label="Registrati"
+                        icon="fa-solid fa-user-plus"
+                        styleClass="p-button-rounded ml-2"
+                    ></p-button>
+                } @else {
+                    <p-button
+                        label="Ricette"
+                        (click)="goToRecipes()"
+                        severity="info"
+                        icon="fa-solid fa-book"
+                        styleClass="p-button-rounded"
+                    ></p-button>
+                    <p-button
+                        label="Esci"
+                        severity="danger"
+                        (click)="logout()"
+                        icon="fa-solid fa-right-from-bracket"
+                        styleClass="p-button-rounded ml-2"
+                    ></p-button>
+                }
+            </ng-template>
+        </p-toolbar>`
 })
 export class LandingTopbar {
     items!: MenuItem[];
 
     constructor(
-        public layoutService: LayoutService,
         protected authService: AuthService,
         private router: Router
     ) {}
 
-    toggleDarkMode() {
-        this.layoutService.layoutConfig.update((state) => ({ ...state, darkTheme: !state.darkTheme }));
+    goToRecipes() {
+        void this.router.navigate(['/r']);
     }
 
     login() {

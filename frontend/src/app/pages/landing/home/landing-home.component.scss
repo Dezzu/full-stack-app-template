@@ -1,0 +1,46 @@
+/* landing.component.css */
+.landing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 10px;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon-wrapper {
+  border-radius: 10px;
+}
+
+.badge-manual, .badge-ai {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge-manual {
+  color: #00C853;
+}
+
+.badge-ai {
+  color: #FF6D00;
+}

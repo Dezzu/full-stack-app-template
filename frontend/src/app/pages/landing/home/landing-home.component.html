@@ -1,1 +1,88 @@
-<p>home works!</p>
+<!-- landing.component.html -->
+<div class="landing-container">
+    <!-- Hero Section -->
+    <div class="hero-section text-center py-6 text-white">
+        <h1 class="text-6xl font-bold mb-3 text-white">Le Tue Ricette, Sempre con Te</h1>
+        <p class="text-xl text-600 mb-4 text-white">
+            Crea, organizza e scopri nuove ricette con l'aiuto dell'intelligenza artificiale
+        </p>
+        <p-button
+            label="Inizia Gratis"
+            (click)="handleStart()"
+            icon="pi pi-arrow-right"
+            iconPos="right"
+            size="large"
+        ></p-button>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="features-grid grid mt-6">
+        <div class="col-12 md:col-6 lg:col-3" *ngFor="let feature of features">
+            <p-card class="feature-card h-full">
+                <ng-template pTemplate="header">
+                    <div class="card-icon-wrapper text-center py-4" [style.background]="feature.color + '20'">
+                        <i [class]="'pi ' + feature.icon" [style.color]="feature.color" style="font-size: 3rem"></i>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="title">
+                    <h3 class="text-xl font-semibold">{{ feature.title }}</h3>
+                </ng-template>
+                <ng-template pTemplate="content">
+                    <p class="text-600">{{ feature.description }}</p>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <p-button label="Scopri di più" [text]="true" icon="pi pi-arrow-right" iconPos="right"></p-button>
+                </ng-template>
+            </p-card>
+        </div>
+    </div>
+
+    <!-- Example Recipes Section -->
+    <div class="recipes-section mt-8">
+        <h2 class="text-4xl font-bold text-center mb-5">Esempi di Ricette</h2>
+
+        <div class="grid">
+            <!-- Manual Recipe Card -->
+            <div class="col-12 md:col-6">
+                <p-card>
+                    <ng-template pTemplate="title"> Pasta al Pomodoro </ng-template>
+                    <ng-template pTemplate="subtitle"> Tempo: 30 min | Difficoltà: Facile </ng-template>
+                    <ng-template pTemplate="content">
+                        <p class="mb-3">Una ricetta classica della cucina italiana, semplice ma ricca di sapore.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <p-chip label="Pasta"></p-chip>
+                            <p-chip label="Pomodoro"></p-chip>
+                            <p-chip label="Basilico"></p-chip>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <div class="flex gap-2">
+                            <p-button label="Visualizza" icon="pi pi-eye" styleClass="w-full"></p-button>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+
+            <!-- AI Generated Recipe Card -->
+            <div class="col-12 md:col-6">
+                <p-card>
+                    <ng-template pTemplate="title"> Risotto ai Funghi Porcini </ng-template>
+                    <ng-template pTemplate="subtitle"> Tempo: 45 min | Difficoltà: Media </ng-template>
+                    <ng-template pTemplate="content">
+                        <p class="mb-3">L'AI ha creato questa ricetta basandosi sui tuoi ingredienti disponibili.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <p-chip label="Riso"></p-chip>
+                            <p-chip label="Funghi"></p-chip>
+                            <p-chip label="Parmigiano"></p-chip>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate="footer">
+                        <div class="flex gap-2">
+                            <p-button label="Visualizza" icon="pi pi-eye" styleClass="w-full"></p-button>
+                        </div>
+                    </ng-template>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</div>
