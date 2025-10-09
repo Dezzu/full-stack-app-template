@@ -18,6 +18,13 @@ export class AuthService {
         void this.keycloak.login({ redirectUri });
     }
 
+    public register(redirectUri?: string) {
+        if (redirectUri) {
+            redirectUri = window.location.origin + '/' + redirectUri;
+        }
+        void this.keycloak.register({ redirectUri });
+    }
+
     public logout() {
         void this.keycloak.logout();
     }

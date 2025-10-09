@@ -31,6 +31,7 @@ import { Button } from 'primeng/button';
                     ></p-button>
                     <p-button
                         label="Registrati"
+                        (click)="register()"
                         icon="fa-solid fa-user-plus"
                         styleClass="p-button-rounded ml-2"
                     ></p-button>
@@ -71,5 +72,9 @@ export class LandingTopbar {
 
     logout() {
         void this.router.navigate(['']).then(() => this.authService.logout());
+    }
+
+    register() {
+        this.authService.register('r');
     }
 }
