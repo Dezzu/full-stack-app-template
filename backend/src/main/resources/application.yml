@@ -9,6 +9,11 @@ logging.level:
   org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI}
   datasource:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
@@ -22,16 +27,3 @@ spring:
     properties:
       dialect: org.hibernate.dialect.PostgreSQLDialect
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-config:
-  roles_to_create: USER, ADMIN
-  default_user: USER
-
-jwt:
-  access.secret: awuidbuaiwdbuiawdbuiabduiawhduih12ui3h1ui2h3ui12h31i2h3
-  refresh.secret: 12yu3v1yu2yu1v41yuv41yuv5yu1b52ui35bi23b52i5bi2b5i2b52
-  # Duration in minutes
-  # One Months
-  access.duration: 43200
-  # Two Months
-  refresh.duration: 86400
