@@ -10,11 +10,11 @@
     </parent>
 
     <groupId>it.fabiodezuani</groupId>
-    <artifactId>app-template</artifactId>
+    <artifactId>fabulous-recipes</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Template Project</name>
-    <description>Progetto di Template</description>
+    <name>Receips management</name>
+    <description>Receips management</description>
 
     <properties>
         <java.version>21</java.version>
