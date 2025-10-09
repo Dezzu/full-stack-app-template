@@ -3,9 +3,4 @@ DB_PASSWORD: recipes
 DB_URL: jdbc:postgresql://localhost:5432/recipes
 SERVER_PORT: 8080
 
-KEYCLOAK_ISSUER_URI: https://auth.dezzulab.com/realms/Fabulous-Receipts-Dev
-
-spring:
-  jpa:
-    # update oppure create-drop se voglio spianare tutto e ricostruire
-    hibernate.ddl-auto: update
+KEYCLOAK_ISSUER_URI: https://auth.dezzulab.com/realms/Fabulous-Recipes-Dev

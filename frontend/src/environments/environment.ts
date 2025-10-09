@@ -5,8 +5,8 @@
 export const environment = {
     production: false,
     baseUrl: 'http://localhost:8080/api',
-    kcClientId: 'fabulous-receipt',
-    kcRealm: 'Fabulous-Receipts-Dev',
+    kcClientId: 'fabulous-recipes',
+    kcRealm: 'Fabulous-Recipes-Dev',
     kcUrl: 'https://auth.dezzulab.com'
 };
 
